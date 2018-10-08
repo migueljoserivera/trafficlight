@@ -15,11 +15,6 @@ namespace TrafficLight
 
         public Color CurrentColor { get; set; }
 
-        public TrafficLight()
-        {
-            CurrentColor = Color.Red;
-        }
-
         public void Change()
         {
             switch(CurrentColor)

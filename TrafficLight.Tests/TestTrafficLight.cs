@@ -6,43 +6,56 @@ namespace TrafficLight.Tests
     public class TestTrafficLight
     {
         [Fact]
-        public void DefaultColor_mustBeRed()
+        public void ColorMustBeRedByDefault()
         {
-            TrafficLight trafficLight = new TrafficLight();
+            TrafficLight.Color expectedColor = TrafficLight.Color.Red;
+            TrafficLight.Color actualColor;
 
-            Assert.Equal(TrafficLight.Color.Red, trafficLight.CurrentColor);
+            TrafficLight trafficLight = new TrafficLight();
+            actualColor = trafficLight.CurrentColor;
+
+            Assert.Equal(expectedColor, actualColor);
         }
 
         [Fact]
-        public void ChangeIfIsRed_mustChangeToGreen()
+        public void WhenColorIsRedMustChangeToGreen()
         {
+            TrafficLight.Color expectedColor = TrafficLight.Color.Green;
+            TrafficLight.Color actualColor;
             TrafficLight trafficLight = new TrafficLight();
 
             trafficLight.Change();
+            actualColor = trafficLight.CurrentColor;
 
-            Assert.Equal(TrafficLight.Color.Green, trafficLight.CurrentColor);
+            Assert.Equal(expectedColor, actualColor);
         }
 
         [Fact]
-        public void ChangeIfIsGreen_mustChangeToYellow()
+        public void WhenColorIsGreenMustChangeToYellow()
         {
+            TrafficLight.Color expectedColor = TrafficLight.Color.Yellow;
+            TrafficLight.Color actualColor;
             TrafficLight trafficLight = new TrafficLight();
             trafficLight.CurrentColor = TrafficLight.Color.Green;
 
             trafficLight.Change();
+            actualColor = trafficLight.CurrentColor;
 
-            Assert.Equal(TrafficLight.Color.Yellow, trafficLight.CurrentColor);
+            Assert.Equal(expectedColor, actualColor);
         }
 
         [Fact]
-        public void ChangeIfIsYellow_mustChangeToRed()
+        public void WhenColorIsYellowMustChangeToRed()
         {
+            TrafficLight.Color expectedColor = TrafficLight.Color.Red;
+            TrafficLight.Color actualColor;
             TrafficLight trafficLight = new TrafficLight();
             trafficLight.CurrentColor = TrafficLight.Color.Yellow;
 
             trafficLight.Change();
+            actualColor = trafficLight.CurrentColor;
 
-            Assert.Equal(TrafficLight.Color.Red, trafficLight.CurrentColor);
+            Assert.Equal(expectedColor, actualColor);
         }
     }
 }
